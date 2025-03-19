@@ -16,9 +16,8 @@ pipeline {
         stage('Compile') {
             steps {
                 // Compile the Java file
-                sh 'javac HelloWorld.java'
+                sh 'javac multi-stage-multi-agent/hello-world  HelloWorld.java'
             }
-        }
         stage('Run') {
             steps {
                 // Run the compiled Java class
