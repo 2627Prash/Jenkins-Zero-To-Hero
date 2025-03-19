@@ -1,0 +1,29 @@
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checks out the repository (assumes HelloWorld.java is in the root directory)
+                checkout scm
+            }
+        }
+        stage('Compile') {
+            steps {
+                // Compile the Java file
+                sh 'javac HelloWorld.java'
+            }
+        }
+        stage('Run') {
+            steps {
+                // Run the compiled Java class
+                sh 'java HelloWorld'
+            }
+        }
+    }
+}
